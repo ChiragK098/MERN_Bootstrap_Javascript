@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Registration Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h2 class="text-center">Registration Form</h2>
+      <form action="">
+        <fieldset>
+          <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label text-right"
+              >First Name</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fas fa-user"></i
+                  ></span>
+                </div>
+                <input type="text" class="form-control" id="fname" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="fatherName" class="col-sm-3 col-form-label text-right"
+              >Last Name</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fas fa-user"></i
+                  ></span>
+                </div>
+                <input type="text" class="form-control" id="lname" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email" class="col-sm-3 col-form-label text-right"
+              >Email</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fas fa-envelope"></i
+                  ></span>
+                </div>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phone" class="col-sm-3 col-form-label text-right"
+              >Phone No</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fas fa-phone"></i
+                  ></span>
+                </div>
+                <input type="number" class="form-control" id="phone" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="form-group row">
+            <label for="address" class="col-sm-3 col-form-label text-right"
+              >Address</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fas fa-address-book"></i
+                  ></span>
+                </div>
+                <textarea class="form-control" id="address"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="city" class="col-sm-3 col-form-label text-right"
+              >City</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fas fa-list"></i
+                  ></span>
+                </div>
+                <select class="form-control" id="city" name="city">
+                  <option value="0">Select City</option>
+                  <option value="1">City 1</option>
+                  <option value="2">City 2</option>
+                  <option value="3">City 3</option>
+                  <option value="4">City 4</option>
+                  <option value="5">City 5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="zipcode" class="col-sm-3 col-form-label text-right"
+              >State</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fas fa-home"></i
+                  ></span>
+                </div>
+                <input type="number" class="form-control" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label text-right"
+              >Do you have hosting?</label
+            >
+            <div class="col-sm-9">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="Yes"
+                />Yes<br />
+                <input class="form-check-input" type="radio" value="No" />No
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="projectDescription"
+              class="col-sm-2 col-form-label text-right"
+              >Project Description</label
+            >
+            <div class="col-sm-10">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="fas fa-file-alt"></i
+                  ></span>
+                </div>
+                <textarea
+                  class="form-control"
+                  id="projectDescription"
+                  name="projectdescription"
+                  rows="2"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset></fieldset>
+
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-warning">
+            Send <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

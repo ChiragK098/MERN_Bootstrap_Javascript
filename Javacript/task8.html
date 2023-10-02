@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task8</title>
+    <style>
+        body {
+            background-image: linear-gradient(
+                rgb(201, 203, 112),
+                rgb(165, 89, 188)
+            );
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        td,
+        th {
+            border-style: none;
+        }
+
+        input[type="button"] {
+            background-color: red;
+            color: black;
+            border: black solid;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 40%;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h1 style="font-weight: bolder; color: blue">Registration form</h1>
+    <form onsubmit="return validateForm();">
+        <table>
+            <tr>
+                <th>First name</th>
+                <td>
+                    <input type="text" name="first_name" style="width: 98.8%" />
+                </td>
+            </tr>
+            <tr>
+                <th>Last name</th>
+                <td>
+                    <input type="text" name="last_name" style="width: 98.8%" />
+                </td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>
+                    <input type="text" name="email" style="width: 98.8%" />
+                </td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>
+                    <input type="password" name="password" style="width: 98.8%" />
+                </td>
+            </tr>
+            <tr>
+                <th>Re-password</th>
+                <td>
+                    <input type="password" name="re_password" style="width: 98.8%" />
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="2">Gender:</th>
+                <td><input type="radio" name="gender" value="male" />Male</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="gender" value="female" />Female</td>
+            </tr>
+            <tr>
+                <th>Age:</th>
+                <td>
+                    <input type="text" name="age" style="width: 98.8%" />
+                </td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>
+                    <textarea name="address" rows="5" cols="83"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>
+                    <input type="text" name="state" style="width: 98.8%" />
+                </td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>
+                    <select name="country">
+                        <option value="none" selected disabled hidden>
+                            Select your Country
+                        </option>
+                        <option>India</option>
+                        <option>Dubai</option>
+                        <option>USA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Languages known</th>
+                <td>
+                    <input type="checkbox" name="languages" value="English" />English
+                    <input type="checkbox" name="languages" value="Hindi" />Hindi
+                    <input type="checkbox" name="languages" value="Kannada" />Kannada
+                    <input type="checkbox" name="languages" value="Telugu" />Telugu
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="declaration" />Hereby I declare all the given details are true
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right">
+                    Login to <a href="">Ethnus </a>Webiste
+                </td>
+            </tr>
+        </table>
+        <div style="padding: 20px; padding-left: 50px">
+            <input type="submit" value="Register" />
+        </div>
+    </form>
+</center>
+<script>
+     function validateForm() {
+        var firstName = document.querySelector('input[name="first_name"]').value;
+        var lastName = document.querySelector('input[name="last_name"]').value;
+        var email = document.querySelector('input[name="email"]').value;
+        var password = document.querySelector('input[name="password"]').value;
+        var rePassword = document.querySelector('input[name="re_password"]').value;
+        var genderMale = document.querySelector('input[name="gender"][value="male"]').checked;
+        var genderFemale = document.querySelector('input[name="gender"][value="female"]').checked;
+        var age = document.querySelector('input[name="age"]').value;
+        var address = document.querySelector('textarea[name="address"]').value;
+        var state = document.querySelector('input[name="state"]').value;
+        var country = document.querySelector('select[name="country"]').value;
+        var languages = document.querySelectorAll('input[name="languages"]:checked').length;
+        var declaration = document.querySelector('input[name="declaration"]').checked;
+        var errorMessage = document.getElementById("error-message");
+
+        // Reset previous error messages
+        errorMessage.innerHTML = "";
+
+        if (firstName === "") {
+            errorMessage.innerHTML += "First name is required. ";
+        }
+
+        if (lastName === "") {
+            errorMessage.innerHTML += "Last name is required. ";
+        }
+
+        if (email === "") {
+            errorMessage.innerHTML += "Email is required. ";
+        }
+
+        if (password === "") {
+            errorMessage.innerHTML += "Password is required. ";
+        }
+
+        if (rePassword === "") {
+            errorMessage.innerHTML += "Re-password is required. ";
+        }
+
+        if (password !== rePassword) {
+            errorMessage.innerHTML += "Passwords do not match. ";
+        }
+
+        if (!(genderMale || genderFemale)) {
+            errorMessage.innerHTML += "Please select a gender. ";
+        }
+
+        if (age === "") {
+            errorMessage.innerHTML += "Age is required. ";
+        }
+
+        if (address === "") {
+            errorMessage.innerHTML += "Address is required. ";
+        }
+
+        if (state === "") {
+            errorMessage.innerHTML += "State is required. ";
+        }
+
+        if (country === "none") {
+            errorMessage.innerHTML += "Country is required. ";
+        }
+
+        if (languages === 0) {
+            errorMessage.innerHTML += "Please select at least one language known. ";
+        }
+
+        if (!declaration) {
+            errorMessage.innerHTML += "Please accept the declaration. ";
+        }
+
+        // Check if there are any error messages
+        if (errorMessage.innerHTML !== "") {
+            return false; // Prevent form submission
+        }
+
+        return true;
+    }
+</script>
+</body>
+</html>

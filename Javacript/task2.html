@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-2</title>
+</head>
+<body>
+    <h1>Sort String Alphabetically</h1>
+    <form id="sortForm">
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString" name="inputString" required>
+        <button type="submit">Sort</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function sortStringAlphabetically(inputString) {
+            const characters = inputString.split('');
+            const sortedCharacters = characters.sort();
+            return sortedCharacters.join('');
+        }
+
+        const form = document.getElementById('sortForm');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const inputString = document.getElementById('inputString').value;
+            const sortedString = sortStringAlphabetically(inputString);
+            resultDiv.textContent = `Sorted string: ${sortedString}`;
+        });
+    </script>
+</body>
+</html>

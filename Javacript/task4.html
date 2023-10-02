@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task-4</title>
+</head>
+<body>
+    <h1>Date and Time</h1>
+
+    <button onclick="showDate()">Show Date</button><br>
+    <p id="dateResult"></p>
+
+    <button onclick="showTime()">Show Time</button><br>
+    <p id="timeResult"></p>
+
+    <script>
+        function showDate() {
+            const customDate = new Date();
+            const dateResultElement = document.getElementById("dateResult");
+            dateResultElement.textContent = `${customDate.toDateString()}`;
+        }
+
+        function showTime() {
+            const currentTime = new Date();
+            const timeResultElement = document.getElementById("timeResult");
+            timeResultElement.textContent = `${currentTime.toString()}`;
+        }
+    </script>
+</body>
+</html>

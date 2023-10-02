@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Task-5</title>
+    <style>
+        /* Your CSS styles here */
+        .error {
+            display: none;
+            color: red;
+        }
+
+        .error_show {
+            display: inline-block;
+            color: red;
+        }
+
+        input.invalid, textarea.invalid {
+            border: 2px solid red;
+        }
+
+        input.valid, textarea.valid {
+            border: 2px solid green;
+        }
+        div{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="contact" method="post" action="">
+        <!-- Name -->
+        <div>
+            <label for="contact_name">Name:</label>
+            <input type="text" id="contact_name" name="name">
+            <span class="error">This field is required</span>
+        </div>
+        <!-- Email -->
+        <div>
+            <label for="contact_email">Email:</label>
+            <input type="email" id="contact_email" name="email">
+            <span class="error">A valid email address is required</span>
+        </div>
+        <!-- Website -->
+        <div>
+            <label for="contact_website">Website:</label>
+            <input type="url" id="contact_website" name="website">
+            <span class="error">A valid URL is required</span>
+        </div>
+        <!-- Message -->
+        <div>
+            <label for="contact_message">Message:</label>
+            <textarea id="contact_message" name="message"></textarea>
+            <span class="error">This field is required</span>
+        </div>
+        <!-- Submit Button -->
+        <div id="contact_submit">
+            <button type="button" id="submit_button">Submit</button>
+        </div>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to validate each field
+            function validateField(input, errorSpan) {
+                var isInvalid = input.value.trim() === "";
+                if (isInvalid) {
+                    errorSpan.style.display = "inline-block";
+                    input.classList.remove("valid");
+                    input.classList.add("invalid");
+                } else {
+                    errorSpan.style.display = "none";
+                    input.classList.remove("invalid");
+                    input.classList.add("valid");
+                }
+                return !isInvalid;
+            }
+
+            // Function to validate the entire form
+            function validateForm() {
+                var nameValid = validateField(document.getElementById("contact_name"), document.querySelector("#contact_name + .error"));
+                var emailValid = validateField(document.getElementById("contact_email"), document.querySelector("#contact_email + .error"));
+                var websiteValid = validateField(document.getElementById("contact_website"), document.querySelector("#contact_website + .error"));
+                var messageValid = validateField(document.getElementById("contact_message"), document.querySelector("#contact_message + .error"));
+
+                return nameValid && emailValid && websiteValid && messageValid;
+            }
+
+            // Event listener for the submit button
+            document.getElementById("submit_button").addEventListener("click", function () {
+                var formValid = validateForm();
+
+                if (formValid) {
+                    // If the form is valid, you can submit it or perform other actions here.
+                    alert("Form submitted successfully!");
+                }   
+            });
+        });
+    </script>
+</body>
+</html>
